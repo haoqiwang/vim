@@ -113,6 +113,6 @@ cd ..
 
 Note: To reproduce ODIN baseline, please refer to [this repo](https://github.com/deeplearning-wisc/large_scale_ood).
 
-##Acknoledgement
+## Acknoledgement
 
 Part of the code is borrowed from [MOS](https://github.com/deeplearning-wisc/large_scale_ood) repo.
