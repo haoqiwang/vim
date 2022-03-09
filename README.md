@@ -80,7 +80,7 @@ cd ..
     ./benchmark.py outputs/bit_fc.pkl outputs/bit_train_200k.pkl outputs/bit_imagenet_val.pkl outputs/bit_openimage_o.pkl outputs/bit_texture.pkl outputs/bit_inaturalist.pkl outputs/bit_imagenet_o.pkl
     ```
 
-### RepVGG, Res50d, Swin, Deit
+### RepVGG, Res50d, Swin, DeiT
 
 1. download checkpoint
    ```bash
