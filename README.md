@@ -6,8 +6,8 @@
 
 Dataset source can be downloaded here.
 
-- [ImageNet](https://www.image-net.org/). The ILSVRC 2012 dataset.
-- [OpenImage-O](https://github.com/openimages/dataset/blob/main/READMEV3.md). The OpenImage-O dataset is a subset of the OpenImage-V3 testing set. The filelist is [here](datalists/openimage-o.txt).
+- [ImageNet](https://www.image-net.org/). The ILSVRC 2012 dataset. The training subset we used is [this file](datalists/imagenet2012_train_random_200k.txt).
+- [OpenImage-O](https://github.com/openimages/dataset/blob/main/READMEV3.md). The OpenImage-O dataset is a subset of the OpenImage-V3 testing set. The filelist is [here](datalists/openimage_o.txt).
 - [Texture](https://www.robots.ox.ac.uk/~vgg/data/dtd/). We rule out four classes that coincides with ImageNet. The filelist used in the paper is [here](datalists/texture.txt).
 - [iNaturalist](https://github.com/deeplearning-wisc/large_scale_ood). Follow the instructions in the link to prepare the iNaturalist OOD dataset.
 - [ImageNet-O](https://github.com/hendrycks/natural-adv-examples). Follow the guide to download the ImageNet-O OOD dataset.
