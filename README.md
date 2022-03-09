@@ -1,4 +1,6 @@
-# Official code for ViM
+# Official code for ViM: Out-Of-Distribution with Virtual-logit Matching
+[![🌊 - Project Page](https://img.shields.io/badge/🌊-Project_Page-blue)](https://github.com/ooddetection/ooddetection.github.io)
+[![🦢 - Paper](https://img.shields.io/badge/🦢-Paper-red)]()
 
 ## Steps
 
@@ -113,6 +115,16 @@ cd ..
 
 Note: To reproduce ODIN baseline, please refer to [this repo](https://github.com/deeplearning-wisc/large_scale_ood).
 
+## Citation
+
+```@inproceedings{haoqi2022vim,
+title = {ViM: Out-Of-Distribution with Virtual-logit Matching},
+author = {Wang, Haoqi and Li, Zhizhong and Feng, Litong and Zhang, Wayne},
+booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+year = {2022}
+}
+```
+
 ## Acknoledgement
 
-Part of the code is borrowed from [MOS](https://github.com/deeplearning-wisc/large_scale_ood) repo.
+Part of the code is modified from [MOS](https://github.com/deeplearning-wisc/large_scale_ood) repo.
