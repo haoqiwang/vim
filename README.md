@@ -125,6 +125,6 @@ year = {2022}
 }
 ```
 
-## Acknoledgement
+## Acknowledgement
 
 Part of the code is modified from [MOS](https://github.com/deeplearning-wisc/large_scale_ood) repo.
