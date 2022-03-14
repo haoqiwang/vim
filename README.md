@@ -1,6 +1,6 @@
 # Official code for ViM: Out-Of-Distribution with Virtual-logit Matching
 [![🌊 - Project Page](https://img.shields.io/badge/🌊-Project_Page-blue)](http://ooddetection.github.io)
-[![🦢 - Paper](https://img.shields.io/badge/🦢-Paper-red)]()
+[![🦢 - Paper](https://img.shields.io/badge/🦢-Paper-red)](https://ooddetection.github.io/paper/vim_cvpr2022_haoqi.pdf)
 
 ## DataSets
 
