@@ -86,7 +86,7 @@ cd ..
    ```bash
    mkdir checkpoints
    cd checkpoints
-   wget BiT-S-R101x1.npz
+   wget https://storage.googleapis.com/bit_models/BiT-S-R101x1.npz
    cd ..
    ```
 2. extract features, use repvgg_b3, resnet50d, swin, deit as model
