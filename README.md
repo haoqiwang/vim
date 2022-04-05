@@ -59,7 +59,7 @@ cd ..
    ```bash
    mkdir checkpoints
    cd checkpoints
-   wget BiT-S-R101x1.npz
+   wget https://storage.googleapis.com/bit_models/BiT-S-R101x1.npz
    cd ..
    ```
 2. extract features
@@ -82,14 +82,7 @@ cd ..
 
 ### RepVGG, Res50d, Swin, DeiT
 
-1. download checkpoint
-   ```bash
-   mkdir checkpoints
-   cd checkpoints
-   wget https://storage.googleapis.com/bit_models/BiT-S-R101x1.npz
-   cd ..
-   ```
-2. extract features, use repvgg_b3, resnet50d, swin, deit as model
+1. extract features, use repvgg_b3, resnet50d, swin, deit as model
     ```bash
     # choose one of them
     export MODEL=repvgg_b3 && export NAME=repvgg
@@ -104,11 +97,11 @@ cd ..
     ./extract_feature_timm.py data/inaturalist outputs/${NAME}_inaturalist.pkl ${MODEL}
     ./extract_feature_timm.py data/imagenet_o outputs/${NAME}_imagenet_o.pkl ${MODEL}
     ```
-3. extract w and b in fc
+2. extract w and b in fc
     ```bash
     ./extract_feature_timm.py a b ${MODEL} --fc_save_path outputs/${NAME}_fc.pkl
     ```
-4. evaluation
+3. evaluation
     ```bash
     ./benchmark.py outputs/${NAME}_fc.pkl outputs/${NAME}_train_200k.pkl outputs/${NAME}_imagenet_val.pkl outputs/${NAME}_openimage_o.pkl outputs/${NAME}_texture.pkl outputs/${NAME}_inaturalist.pkl outputs/${NAME}_imagenet_o.pkl
     ```
