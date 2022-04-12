@@ -110,7 +110,8 @@ Note: To reproduce ODIN baseline, please refer to [this repo](https://github.com
 
 ## Citation
 
-```@inproceedings{haoqi2022vim,
+```
+@inproceedings{haoqi2022vim,
 title = {ViM: Out-Of-Distribution with Virtual-logit Matching},
 author = {Wang, Haoqi and Li, Zhizhong and Feng, Litong and Zhang, Wayne},
 booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
