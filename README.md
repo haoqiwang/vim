@@ -1,7 +1,7 @@
 # Official code for ViM: Out-Of-Distribution with Virtual-logit Matching
 [![🌊 - Project Page](https://img.shields.io/badge/🌊-Project_Page-blue)](http://ooddetection.github.io)
 [![🦢 - Paper](https://img.shields.io/badge/🦢-Paper-red)](https://arxiv.org/abs/2203.10807)
-https://youtu.be/f7wRRhZtRPU
+[https://youtu.be/f7wRRhZtRPU]
 ## DataSets
 
 Dataset source can be downloaded here.
