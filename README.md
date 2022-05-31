@@ -3,7 +3,8 @@
 [![🌊 - Project Page](https://img.shields.io/badge/🌊-Project_Page-blue)](http://ooddetection.github.io)
 [![🦢 - Paper](https://img.shields.io/badge/🦢-Paper-red)](https://arxiv.org/abs/2203.10807)
 
-https://user-images.githubusercontent.com/9464825/171090496-c1e49596-4603-40c4-af8b-9b60a6f6ba04.mp4
+https://user-images.githubusercontent.com/9464825/171095631-768127d5-8f21-4dcb-9ef3-5b9a210556fc.mp4
+
 
 ## DataSets
 
