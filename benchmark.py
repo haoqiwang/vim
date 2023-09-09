@@ -227,7 +227,12 @@ def main():
     method = 'ViM'
     print(f'\n{method}')
     result = []
-    DIM = 1000 if feature_id_val.shape[-1] >= 2048 else 512
+    if feature_id_val.shape[-1] >= 2048:
+        DIM = 1000
+    elif feature_id_val.shape[-1] >= 768:
+        DIM = 512
+    else:
+        DIM = feature_id_val.shape[-1] // 2
     print(f'{DIM=}')
 
     print('computing principal space...')
@@ -264,7 +269,12 @@ def main():
     method = 'Residual'
     print(f'\n{method}')
     result = []
-    DIM = 1000 if feature_id_val.shape[-1] >= 2048 else 512
+    if feature_id_val.shape[-1] >= 2048:
+        DIM = 1000
+    elif feature_id_val.shape[-1] >= 768:
+        DIM = 512
+    else:
+        DIM = feature_id_val.shape[-1] // 2
     print(f'{DIM=}')
 
     print('computing principal space...')
