@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import argparse
-from mmcls.apis import init_model
+from mmpretrain.apis import init_model
 import torch
 from list_dataset import ImageFilelist
 import numpy as np
