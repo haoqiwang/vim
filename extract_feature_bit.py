@@ -1,28 +1,33 @@
 #!/usr/bin/env python
 import argparse
-import torch
-from list_dataset import ImageFilelist
-import numpy as np
 import pickle
-from tqdm import tqdm
-import mmcv
 from os.path import dirname
+
+import mmcv
+import numpy as np
+import torch
 import torchvision as tv
+from tqdm import tqdm
+
 import resnetv2
+from list_dataset import ImageFilelist
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Say hello')
     parser.add_argument('data_root', help='Path to data')
     parser.add_argument('out_file', help='Path to output file')
     parser.add_argument('--model', default='BiT-S-R101x1', help='Bit model')
-    parser.add_argument('--checkpoint', default='checkpoints/BiT-S-R101x1.npz', help='Path to checkpoint')
+    parser.add_argument(
+        '--checkpoint',
+        default='checkpoints/BiT-S-R101x1.npz',
+        help='Path to checkpoint')
     parser.add_argument('--img_list', default=None, help='Path to image list')
     parser.add_argument('--batch', type=int, default=256, help='Path to data')
     parser.add_argument('--workers', type=int, default=4, help='Path to data')
     parser.add_argument('--fc_save_path', default=None, help='Path to save fc')
 
     return parser.parse_args()
-
 
 
 def main():
@@ -54,8 +59,12 @@ def main():
         dataset = tv.datasets.ImageFolder(args.data_root, transform)
 
     dataloader = torch.utils.data.DataLoader(
-        dataset, batch_size=args.batch, shuffle=False,
-        num_workers=args.workers, pin_memory=True, drop_last=False)
+        dataset,
+        batch_size=args.batch,
+        shuffle=False,
+        num_workers=args.workers,
+        pin_memory=True,
+        drop_last=False)
 
     features = []
     with torch.no_grad():
@@ -69,6 +78,7 @@ def main():
     mmcv.mkdir_or_exist(dirname(args.out_file))
     with open(args.out_file, 'wb') as f:
         pickle.dump(features, f)
+
 
 if __name__ == '__main__':
     main()

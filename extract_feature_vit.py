@@ -1,22 +1,29 @@
 #!/usr/bin/env python
 import argparse
-from mmpretrain.apis import init_model
-import torch
-from list_dataset import ImageFilelist
-import numpy as np
 import pickle
-from tqdm import tqdm
-import mmcv
-import mmengine
 from os.path import dirname
+
+import mmengine
+import numpy as np
+import torch
 import torchvision as tv
+from tqdm import tqdm
+
+from list_dataset import ImageFilelist
+from mmpretrain.apis import init_model
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Say hello')
     parser.add_argument('data_root', help='Path to data')
     parser.add_argument('out_file', help='Path to output file')
-    parser.add_argument('--cfg', default='vit-base-p16-384.py', help='Path to config')
-    parser.add_argument('--checkpoint', default='checkpoints/vit-base-p16_in21k-pre-3rdparty_ft-64xb64_in1k-384_20210928-98e8652b.pth', help='Path to checkpoint')
+    parser.add_argument(
+        '--cfg', default='vit-base-p16-384.py', help='Path to config')
+    parser.add_argument(
+        '--checkpoint',
+        default='checkpoints/vit-base-p16_in21k-pre-3rdparty_ft-64xb64_in1k-'
+        '384_20210928-98e8652b.pth',
+        help='Path to checkpoint')
     parser.add_argument('--img_list', default=None, help='Path to image list')
     parser.add_argument('--batch', type=int, default=256, help='Path to data')
     parser.add_argument('--workers', type=int, default=4, help='Path to data')
@@ -53,8 +60,12 @@ def main():
         dataset = tv.datasets.ImageFolder(args.data_root, transform)
 
     dataloader = torch.utils.data.DataLoader(
-        dataset, batch_size=args.batch, shuffle=False,
-        num_workers=args.workers, pin_memory=True, drop_last=False)
+        dataset,
+        batch_size=args.batch,
+        shuffle=False,
+        num_workers=args.workers,
+        pin_memory=True,
+        drop_last=False)
 
     features = []
     with torch.no_grad():
@@ -68,6 +79,7 @@ def main():
     mmengine.mkdir_or_exist(dirname(args.out_file))
     with open(args.out_file, 'wb') as f:
         pickle.dump(features, f)
+
 
 if __name__ == '__main__':
     main()
