@@ -7,6 +7,7 @@ import numpy as np
 import pickle
 from tqdm import tqdm
 import mmcv
+import mmengine
 from os.path import dirname
 import torchvision as tv
 
@@ -29,11 +30,11 @@ def main():
 
     torch.backends.cudnn.benchmark = True
 
-    cfg = mmcv.Config.fromfile(args.cfg)
+    cfg = mmengine.Config.fromfile(args.cfg)
     model = init_model(cfg, args.checkpoint, 0).cuda().eval()
 
     if args.fc_save_path is not None:
-        mmcv.mkdir_or_exist(dirname(args.fc_save_path))
+        mmengine.mkdir_or_exist(dirname(args.fc_save_path))
         w = model.head.layers.head.weight.cpu().detach().numpy()
         b = model.head.layers.head.bias.cpu().detach().numpy()
         with open(args.fc_save_path, 'wb') as f:
@@ -64,7 +65,7 @@ def main():
 
     features = np.concatenate(features, axis=0)
 
-    mmcv.mkdir_or_exist(dirname(args.out_file))
+    mmengine.mkdir_or_exist(dirname(args.out_file))
     with open(args.out_file, 'wb') as f:
         pickle.dump(features, f)
 

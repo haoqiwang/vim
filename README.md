@@ -31,7 +31,7 @@ cd ..
 
 ### VIT
 
-1. install mmclassification
+1. install mmpretrain
 2. download checkpoint
    ```bash
    mkdir checkpoints
@@ -47,6 +47,8 @@ cd ..
     ./extract_feature_vit.py data/texture outputs/vit_texture.pkl --img_list datalists/texture.txt
     ./extract_feature_vit.py data/inaturalist outputs/vit_inaturalist.pkl
     ./extract_feature_vit.py data/imagenet_o outputs/vit_imagenet_o.pkl
+    ./extract_feature_vit.py data/cifar10 outputs/vit_cifar10_train.pkl --img_list datalists/cifar10_train.txt
+    ./extract_feature_vit.py data/cifar10 outputs/vit_cifar10_test.pkl --img_list datalists/cifar10_test.txt
     ```
 4. extract w and b in fc
     ```bash
@@ -55,6 +57,7 @@ cd ..
 5. evaluation
     ```bash
     ./benchmark.py outputs/vit_fc.pkl outputs/vit_train_200k.pkl outputs/vit_imagenet_val.pkl outputs/vit_openimage_o.pkl outputs/vit_texture.pkl outputs/vit_inaturalist.pkl outputs/vit_imagenet_o.pkl
+    ./benchmark.py outputs/vit_fc.pkl outputs/vit_cifar10_train.pkl outputs/vit_cifar10_test.pkl outputs/vit_openimage_o.pkl outputs/vit_texture.pkl outputs/vit_inaturalist.pkl outputs/vit_imagenet_o.pkl
     ```
 
 ### BIT

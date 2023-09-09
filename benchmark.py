@@ -3,7 +3,7 @@ import argparse
 import torch
 import numpy as np
 from tqdm import tqdm
-import mmcv
+import mmengine
 from numpy.linalg import norm, pinv
 from scipy.special import softmax
 from sklearn import metrics
@@ -96,17 +96,17 @@ def main():
     ood_names = [splitext(basename(ood))[0] for ood in args.ood_features]
     print(f"ood datasets: {ood_names}")
 
-    w, b = mmcv.load(args.fc)
+    w, b = mmengine.load(args.fc)
     print(f'{w.shape=}, {b.shape=}')
 
-    train_labels = np.array([int(line.rsplit(' ', 1)[-1]) for line in mmcv.list_from_file(args.train_label)], dtype=int)
+    train_labels = np.array([int(line.rsplit(' ', 1)[-1]) for line in mmengine.list_from_file(args.train_label)], dtype=int)
 
     recall = 0.95
 
     print('load features')
-    feature_id_train = mmcv.load(args.id_train_feature).squeeze()
-    feature_id_val = mmcv.load(args.id_val_feature).squeeze()
-    feature_oods = {name: mmcv.load(feat).squeeze() for name, feat in zip(ood_names, args.ood_features)}
+    feature_id_train = mmengine.load(args.id_train_feature).squeeze()
+    feature_id_val = mmengine.load(args.id_val_feature).squeeze()
+    feature_oods = {name: mmengine.load(feat).squeeze() for name, feat in zip(ood_names, args.ood_features)}
     print(f'{feature_id_train.shape=}, {feature_id_val.shape=}')
     for name, ood in feature_oods.items():
         print(f'{name} {ood.shape}')
@@ -274,7 +274,7 @@ def main():
     print('computing classwise mean feature...')
     train_means = []
     train_feat_centered = []
-    for i in tqdm(range(1000)):
+    for i in tqdm(range(train_labels.max()+1)):
         fs = feature_id_train[train_labels == i]
         _m = fs.mean(axis=0)
         train_means.append(_m)
