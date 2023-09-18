@@ -128,3 +128,6 @@ year = {2022}
 ## Acknowledgement
 
 Part of the code is modified from [MOS](https://github.com/deeplearning-wisc/large_scale_ood) repo.
+
+## Related Project
+[Get the Best of Both Worlds: Improving Accuracy and Transferability by Grassmann Class Representation (ICCV 2023)](https://github.com/innerlee/gcr)
